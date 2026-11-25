@@ -1,0 +1,4 @@
+id_sucursal,nombre,zona,abre_sabados
+1,Sucursal Centro,Centro,1
+2,Sucursal Norte,Norte,1
+3,Sucursal Sur,Sur,0

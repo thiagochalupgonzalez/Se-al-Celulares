@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Señal | Celulares en oferta, buenos y baratos, y premium</title>
+  <meta name="description" content="Tienda de celulares para quien necesita un teléfono hoy: ofertas, equipos buenos y baratos, y modelos premium. Retiro en sucursal y cuotas sin interés.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <!-- Tipografía externa (Google Fonts): una sola familia con tres pesos, para cargar poco -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap (diseño y componentes) e íconos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- CSS propio: va último para poder sobrescribir a Bootstrap -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <a class="salto" href="#contenido" data-i18n="salto">Saltar al contenido</a>
+
+  <!-- HEADER semántico con el menú de navegación -->
+  <header class="encabezado">
+    <nav class="navbar navbar-expand-xl limite" aria-label="Menú principal">
+      <a class="navbar-brand marca" href="index.html">señal<span class="punto">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-xl-center gap-xl-1">
+          <li class="nav-item"><a class="nav-link" href="index.html#ofertas" data-i18n="nav_ofertas">Ofertas</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#baratos" data-i18n="nav_baratos">Buenos y baratos</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#premium" data-i18n="nav_premium">Premium</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#para-mirta" data-i18n="nav_mirta">Para Mirta</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#guia" data-i18n="nav_guia">Guía fácil</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#quienes-somos" data-i18n="nav_quienes">Quiénes somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#glosario" data-i18n="nav_glosario">Glosario</a></li>
+          <li class="nav-item"><button id="letra" class="btn btn-outline-dark rounded-pill" type="button" aria-pressed="false"><i class="bi bi-type" aria-hidden="true"></i> <span data-i18n="letra">Letra grande</span></button></li>
+          <li class="nav-item"><button id="idioma" class="btn btn-outline-dark rounded-pill" type="button" aria-label="Cambiar idioma / Change language">EN</button></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- HERO: lo primero que ve la persona. El BUSCADOR está arriba, sin tener que bajar la pantalla (ver wireframe) -->
+    <section id="inicio" class="hero limite" aria-labelledby="hero-t">
+      <div class="hero-texto">
+        <h1 id="hero-t" data-i18n="hero_t">¿Necesitás un celular hoy?</h1>
+        <p class="hero-bajada" data-i18n="hero_p">Te ayudamos a elegir uno simple, confiable y al mejor precio. Muchos modelos los podés retirar hoy mismo.</p>
+        <form class="buscador" role="search">
+          <label class="form-label" for="buscador" data-i18n="buscar_l">Buscá tu celular por nombre</label>
+          <input class="form-control form-control-lg" type="search" id="buscador" placeholder="Ej.: Línea G" data-i18n-ph="buscar_ph" autocomplete="off">
+        </form>
+        <ul class="categorias">
+          <li><a href="#ofertas"><i class="bi bi-tag" aria-hidden="true"></i> <span data-i18n="nav_ofertas">Ofertas</span></a></li>
+          <li><a href="#baratos"><i class="bi bi-piggy-bank" aria-hidden="true"></i> <span data-i18n="nav_baratos">Buenos y baratos</span></a></li>
+          <li><a href="#premium"><i class="bi bi-stars" aria-hidden="true"></i> <span data-i18n="nav_premium">Premium</span></a></li>
+        </ul>
+      </div>
+      <div class="hero-imagen">
+        <img src="img/hero.svg" alt="Celular de pantalla azul con la grilla de aplicaciones" width="200" height="400">
+        <span class="hero-sello" data-i18n="sello">Retiralo hoy en sucursal</span>
+      </div>
+    </section>
+
+    <p id="sin-resultados" class="vacio limite" role="status" hidden data-i18n="sin_res">No encontramos celulares con ese nombre.</p>
+
+    <!-- PARA MIRTA: explica en palabras simples para quién es la página y dónde está lo que busca -->
+    <section id="para-mirta" class="limite seccion" aria-labelledby="mirta-t">
+      <div class="mirta">
+        <h2 id="mirta-t" data-i18n="mi_t">Esta página está pensada para Mirta</h2>
+        <p class="mirta-lead" data-i18n="mi_p">Mirta tiene 62 años y se le rompió el celular. Necesita uno hoy, que sea fácil de usar y que no cueste de más.</p>
+        <p class="mirta-respuesta"><i class="bi bi-arrow-down-circle-fill" aria-hidden="true"></i> <span data-i18n="mi_r">Lo que Mirta busca está en Ofertas: le recomendamos el Línea G 5G.</span></p>
+
+        <h3 data-i18n="mi_n">Lo que Mirta necesita y cómo la ayudamos</h3>
+        <!-- Grilla de 2 columnas que pasa a 1 en el celular -->
+        <ul class="necesidades">
+          <li><i class="bi bi-telephone-fill" aria-hidden="true"></i><div><strong data-i18n="n1_t">Llamar a su familia y usar WhatsApp</strong><p data-i18n="n1_d">Todos nuestros celulares lo hacen. El recomendado tiene batería para todo el día.</p></div></li>
+          <li><i class="bi bi-clock-fill" aria-hidden="true"></i><div><strong data-i18n="n2_t">Tenerlo hoy mismo</strong><p data-i18n="n2_d">Lo retira en la sucursal el mismo día, presentando su DNI.</p></div></li>
+          <li><i class="bi bi-cash-coin" aria-hidden="true"></i><div><strong data-i18n="n3_t">No gastar de más</strong><p data-i18n="n3_d">Ofertas con descuento. Paga en efectivo al retirar o en cuotas sin interés.</p></div></li>
+          <li><i class="bi bi-eye-fill" aria-hidden="true"></i><div><strong data-i18n="n4_t">Entender todo sin palabras difíciles</strong><p data-i18n="n4_d">Letra grande, explicaciones simples y un glosario. Arriba hay un botón para agrandar más la letra.</p></div></li>
+        </ul>
+
+        <div class="mirta-botones">
+          <a class="btn btn-acento btn-lg" href="#ofertas"><i class="bi bi-hand-index-thumb" aria-hidden="true"></i> <span data-i18n="mi_b1">Ver el celular recomendado</span></a>
+          <a class="btn btn-outline-dark btn-lg rounded-pill" href="soporte.html"><i class="bi bi-headset" aria-hidden="true"></i> <span data-i18n="mi_b2">Pedir ayuda</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUÍA FÁCIL: los pasos para comprar, en una lista numerada con palabras simples -->
+    <section id="guia" class="fondo-humo seccion" aria-labelledby="guia-t">
+      <div class="limite">
+        <h2 id="guia-t" data-i18n="gu_t">Guía fácil: cómo comprar en 5 pasos</h2>
+        <ol class="guia">
+          <li><i class="bi bi-tag-fill" aria-hidden="true"></i><div><strong data-i18n="gu1_t">Mirá las ofertas</strong><p data-i18n="gu1_d">Bajá hasta "Celulares en oferta". El recomendado tiene un cartel azul.</p></div></li>
+          <li><i class="bi bi-hand-index-thumb-fill" aria-hidden="true"></i><div><strong data-i18n="gu2_t">Tocá "Lo quiero"</strong><p data-i18n="gu2_d">Se abre una ventana con el precio y todo lo que trae el celular.</p></div></li>
+          <li><i class="bi bi-bag-check-fill" aria-hidden="true"></i><div><strong data-i18n="gu3_t">Tocá "Comprar el equipo"</strong><p data-i18n="gu3_d">Escribí tu nombre, tu apellido y tu DNI.</p></div></li>
+          <li><i class="bi bi-shop" aria-hidden="true"></i><div><strong data-i18n="gu4_t">Elegí "Pagar en efectivo y retirar"</strong><p data-i18n="gu4_d">Elegí la sucursal que te quede cerca. Te guardamos el celular 48 horas.</p></div></li>
+          <li><i class="bi bi-person-vcard-fill" aria-hidden="true"></i><div><strong data-i18n="gu5_t">Andá a buscarlo con tu DNI</strong><p data-i18n="gu5_d">Pagás ahí mismo y te lo llevás funcionando.</p></div></li>
+        </ol>
+        <p class="guia-ayuda"><span data-i18n="gu_ayuda">¿Te trabaste en algún paso? Escribinos o llamanos y te ayudamos.</span> <a href="soporte.html" data-i18n="gu_link">Ver contactos</a></p>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO: las tres secciones salen de las consultas SQL (base-de-datos/consultas.sql) -->
+    <section id="ofertas" class="limite seccion" aria-labelledby="ofertas-t">
+        <h2 id="ofertas-t" data-i18n="of_t">Celulares en oferta</h2>
+        <p class="intro" data-i18n="of_p">Equipos nuevos con descuento y usados revisados, con su detalle y su garantía.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4" data-lista="ofertas"></div>
+    </section>
+    <section id="baratos" class="fondo-humo seccion" aria-labelledby="baratos-t">
+      <div class="limite">
+        <h2 id="baratos-t" data-i18n="ba_t">Buenos y baratos</h2>
+        <p class="intro" data-i18n="ba_p">Batería para todo el día y buena memoria, sin gastar de más.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" data-lista="baratos"></div>
+      </div>
+    </section>
+    <section id="premium" class="limite seccion" aria-labelledby="premium-t">
+        <h2 id="premium-t" data-i18n="pr_t">Los más premium</h2>
+        <p class="intro" data-i18n="pr_p">Lo mejor en pantalla, cámara y carga ultrarrápida.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" data-lista="premium"></div>
+    </section>
+
+    <!-- CANJE: contenido secundario (aside) que abre la ventana de comparación -->
+    <aside class="limite seccion">
+      <div class="promo">
+        <h2 data-i18n="c_t">¿Tenés un celular viejo?</h2>
+        <p data-i18n="c_d">Entregalo como parte de pago y pagá menos.</p>
+        <button type="button" class="btn btn-light btn-lg rounded-pill" data-bs-toggle="modal" data-bs-target="#canje" data-i18n="c_b">Cambiar mi celular</button>
+      </div>
+    </aside>
+
+    <!-- QUIÉNES SOMOS: texto de Prácticas del Lenguaje (microcopywriting y corrección de estilo) -->
+    <section id="quienes-somos" class="fondo-humo seccion" aria-labelledby="q-t">
+      <div class="limite">
+        <h2 id="q-t" data-i18n="q_t">Quiénes somos</h2>
+        <p class="lead" data-i18n="q_1">Somos Señal, una tienda de celulares pensada para quienes necesitan resolver rápido y sin vueltas. Sabemos que cuando el teléfono se rompe, todo se complica: no se puede llamar a la familia, hacer trámites ni pedir ayuda.</p>
+        <p class="lead" data-i18n="q_2">Por eso mostramos pocos modelos, bien explicados y con precios claros. Los separamos en tres grupos (ofertas, buenos y baratos, y premium) para que elijas sin marearte. Si un equipo es usado, te contamos su detalle con honestidad.</p>
+      </div>
+    </section>
+
+    <!-- GLOSARIO TÉCNICO bilingüe (Inglés) -->
+    <section id="glosario" class="limite seccion" aria-labelledby="g-t">
+      <h2 id="g-t" data-i18n="g_t">Glosario técnico</h2>
+      <p class="intro" data-i18n="g_p">Palabras que vas a encontrar al elegir un celular.</p>
+      <div class="table-responsive">
+        <!-- Una sola tabla: el texto está en español y el botón EN/ES lo cambia por las traducciones de app.js (claves gl1_t, gl1_d...) -->
+        <table class="table tabla-glosario">
+          <thead><tr><th scope="col" data-i18n="g_h1">Término</th><th scope="col" data-i18n="g_h2">Qué significa</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" data-i18n="gl1_t">Memoria RAM</th><td data-i18n="gl1_d">La memoria que usa el celular para abrir varias aplicaciones a la vez.</td></tr>
+            <tr><th scope="row" data-i18n="gl2_t">Almacenamiento</th><td data-i18n="gl2_d">El espacio para guardar fotos, aplicaciones y archivos.</td></tr>
+            <tr><th scope="row" data-i18n="gl3_t">Frecuencia de actualización (Hz)</th><td data-i18n="gl3_d">Cuántas veces por segundo se renueva la imagen: más Hz, movimiento más fluido.</td></tr>
+            <tr><th scope="row" data-i18n="gl4_t">Batería (mAh)</th><td data-i18n="gl4_d">La energía que guarda la batería: más mAh, más horas de uso.</td></tr>
+            <tr><th scope="row" data-i18n="gl5_t">Carga rápida (W)</th><td data-i18n="gl5_d">La potencia del cargador: más W, menos tiempo para cargar.</td></tr>
+            <tr><th scope="row" data-i18n="gl6_t">Cámara (MP)</th><td data-i18n="gl6_d">Los megapíxeles indican cuánto detalle tienen las fotos.</td></tr>
+            <tr><th scope="row" data-i18n="gl7_t">Panel (LCD, AMOLED, pOLED)</th><td data-i18n="gl7_d">El tipo de pantalla. AMOLED y pOLED muestran negros más profundos que LCD.</td></tr>
+            <tr><th scope="row" data-i18n="gl8_t">Red 4G o 5G</th><td data-i18n="gl8_d">La generación de la red móvil. 5G es más veloz donde hay cobertura.</td></tr>
+            <tr><th scope="row" data-i18n="gl9_t">Garantía</th><td data-i18n="gl9_d">El tiempo en que el comercio repara o cambia el equipo si falla.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ventana de detalle: se completa con los datos del celular elegido (js/app.js) -->
+  <div class="modal fade" id="detalle" tabindex="-1" aria-labelledby="detalle-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content detalle">
+        <div class="modal-header">
+          <h2 class="modal-title" id="detalle-titulo"></h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar" data-i18n-aria="cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-5"><div class="detalle-imagen"><img id="detalle-img" src="img/hero.svg" alt="" width="200" height="400"></div></div>
+            <div class="col-md-7">
+              <p class="detalle-precio" id="detalle-precio"></p>
+              <table class="table detalle-tabla"><tbody id="detalle-specs"></tbody></table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-dismiss="modal" data-i18n="d_seguir">Seguir viendo</button>
+          <button type="button" class="btn btn-acento" id="ir-comprar" data-i18n="d_comprar">Comprar el equipo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ventana de compra: formulario simulado (no se envía ni se guarda nada) -->
+  <div class="modal fade" id="compra" tabindex="-1" aria-labelledby="compra-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content detalle">
+        <div class="modal-header">
+          <h2 class="modal-title" id="compra-titulo" data-i18n="cm_t">Comprar el equipo</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar" data-i18n-aria="cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-warning small" data-i18n="cm_aviso">Compra de ejemplo para el trabajo práctico: no ingreses datos reales de tu tarjeta. No se envía ni se guarda nada.</div>
+          <div class="resumen mb-3">
+            <div class="d-flex justify-content-between"><span data-i18n="r_equipo">Equipo</span><strong id="c-equipo"></strong></div>
+            <div class="d-flex justify-content-between"><span data-i18n="r_precio">Precio</span><strong id="c-precio"></strong></div>
+            <div class="d-flex justify-content-between"><span data-i18n="r_desc">Descuento</span><strong id="c-desc"></strong></div>
+            <div class="d-flex justify-content-between fs-5"><span data-i18n="r_total">Total</span><strong id="c-total"></strong></div>
+            <small class="text-secondary" id="c-cuotas"></small>
+          </div>
+          <form id="form-compra">
+            <div class="row g-3">
+              <div class="col-sm-6"><label class="form-label" for="c-nombre" data-i18n="f_nombre">Nombre</label><input class="form-control" id="c-nombre" required autocomplete="given-name"></div>
+              <div class="col-sm-6"><label class="form-label" for="c-apellido" data-i18n="f_apellido">Apellido</label><input class="form-control" id="c-apellido" required autocomplete="family-name"></div>
+              <div class="col-sm-6"><label class="form-label" for="c-dni" data-i18n="f_dni">DNI</label><input class="form-control" id="c-dni" required inputmode="numeric" pattern="[0-9]{7,8}" maxlength="8" placeholder="12345678"></div>
+              <div class="col-sm-6">
+                <label class="form-label" for="banco" data-i18n="f_banco">Banco o billetera con descuento</label>
+                <select class="form-select" id="banco">
+                  <option value="0" data-desc="0" data-i18n="f_sinpromo">Sin promoción</option>
+                  <option value="1" data-desc="15">Banco del Plata: 15%</option>
+                  <option value="2" data-desc="10">Banco Sur: 10%</option>
+                  <option value="3" data-desc="12">Billetera Pago Fácil: 12%</option>
+                  <option value="4" data-desc="8">Billetera MiPlata: 8%</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="metodo" id="tarjeta" checked><label class="form-check-label" for="tarjeta" data-i18n="f_tarjeta">Pagar con tarjeta</label></div>
+                <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="metodo" id="efectivo"><label class="form-check-label" for="efectivo" data-i18n="f_efectivo">Pagar en efectivo y retirar</label></div>
+              </div>
+              <!-- Un fieldset desactivado no se valida: así tarjeta y efectivo no se estorban -->
+              <fieldset id="grupo-tarjeta" class="row g-3 m-0">
+                <div class="col-12"><label class="form-label" for="c-numero" data-i18n="f_numero">Número de tarjeta</label><input class="form-control" id="c-numero" required inputmode="numeric" pattern="[0-9 ]{15,19}" maxlength="19" autocomplete="cc-number" placeholder="0000 0000 0000 0000"></div>
+                <div class="col-sm-4"><label class="form-label" for="c-venc" data-i18n="f_venc">Vencimiento</label><input class="form-control" id="c-venc" required pattern="(0[1-9]|1[0-2])/[0-9]{2}" maxlength="5" autocomplete="cc-exp" placeholder="MM/AA"></div>
+                <div class="col-sm-4"><label class="form-label" for="c-codigo" data-i18n="f_codigo">Código de seguridad</label><input class="form-control" id="c-codigo" required type="password" inputmode="numeric" pattern="[0-9]{3,4}" maxlength="4" autocomplete="cc-csc"></div>
+                <div class="col-sm-4"><label class="form-label" for="cuotas" data-i18n="f_cuotas">Cuotas</label><select class="form-select" id="cuotas"><option>1</option><option>3</option><option>6</option><option selected>12</option></select></div>
+              </fieldset>
+              <fieldset id="grupo-retiro" class="row g-3 m-0" hidden disabled>
+                <div class="col-12">
+                  <label class="form-label" for="sucursal" data-i18n="f_sucursal">Sucursal de retiro</label>
+                  <select class="form-select" id="sucursal" required></select>
+                  <small class="text-secondary" data-i18n="f_reserva">Reservamos tu equipo 48 horas. Pagás en efectivo al retirarlo, con tu DNI.</small>
+                </div>
+              </fieldset>
+            </div>
+          </form>
+          <div id="compra-ok" class="alert alert-success mt-3" role="status" hidden></div>
+          <div class="accordion mt-4" id="seguridad">
+            <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#seg1" aria-expanded="false" aria-controls="seg1"><i class="bi bi-shield-lock me-2" aria-hidden="true"></i> <span data-i18n="s1_t">¿Cómo cuidamos tus datos?</span></button></h3>
+              <div id="seg1" class="accordion-collapse collapse" data-bs-parent="#seguridad"><div class="accordion-body"><ul class="mb-0"><li data-i18n="s1a">Conexión cifrada: la dirección empieza con https y se ve un candado.</li><li data-i18n="s1b">No guardamos el código de seguridad de tu tarjeta.</li><li data-i18n="s1c">Nunca te pedimos claves ni códigos que te lleguen por mensaje.</li></ul></div></div></div>
+            <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#seg2" aria-expanded="false" aria-controls="seg2"><i class="bi bi-patch-check me-2" aria-hidden="true"></i> <span data-i18n="s2_t">¿Qué beneficios tiene comprar seguro?</span></button></h3>
+              <div id="seg2" class="accordion-collapse collapse" data-bs-parent="#seguridad"><div class="accordion-body"><ul class="mb-0"><li data-i18n="s2a">Factura a tu nombre y garantía del equipo.</li><li data-i18n="s2b">Retiro en sucursal con tu DNI: nadie más puede llevarse tu equipo.</li><li data-i18n="s2c">Podés arrepentirte: tenés 10 días corridos en compras a distancia.</li></ul></div></div></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-dismiss="modal" data-i18n="cm_cancelar">Cancelar</button>
+          <button type="submit" form="form-compra" class="btn btn-acento" data-i18n="cm_confirmar">Confirmar compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ventana de canje: compara cuánto te descuentan en cada celular -->
+  <div class="modal fade" id="canje" tabindex="-1" aria-labelledby="canje-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content detalle">
+        <div class="modal-header">
+          <h2 class="modal-title" id="canje-titulo" data-i18n="ca_t">Cambiá tu celular</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar" data-i18n-aria="cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-7">
+              <label class="form-label" for="canje-modelo" data-i18n="ca_modelo">Modelo de tu celular</label>
+              <input class="form-control" id="canje-modelo" list="lista-canje" placeholder="Ej.: Señal Pro X2s" data-i18n-ph="ca_ph" autocomplete="off">
+              <datalist id="lista-canje"></datalist>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label" for="canje-estado" data-i18n="ca_estado">Estado</label>
+              <select class="form-select" id="canje-estado">
+                <option value="1" data-i18n="est1">Excelente</option>
+                <option value="0.8" data-i18n="est2" selected>Bueno</option>
+                <option value="0.6" data-i18n="est3">Con detalles</option>
+              </select>
+            </div>
+          </div>
+          <p id="canje-msg" class="fw-semibold mt-3" role="status"></p>
+          <div class="table-responsive">
+            <table class="table detalle-tabla">
+              <thead><tr><th data-i18n="th_equipo">Equipo</th><th data-i18n="th_precio">Precio</th><th data-i18n="th_desc">Te descontamos</th><th data-i18n="th_pagas">Pagás</th></tr></thead>
+              <tbody id="canje-resultado"></tbody>
+            </table>
+          </div>
+          <p class="nota" data-i18n="ca_nota">Valores de ejemplo. El descuento nunca supera el precio del equipo nuevo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER semántico: contacto, enlaces a redes sociales y a los términos de uso -->
+  <footer id="contacto" class="pie">
+    <div class="limite row g-4">
+      <div class="col-md-4">
+        <h2 class="h5" data-i18n="f_contacto">Contacto</h2>
+        <p><i class="bi bi-telephone" aria-hidden="true"></i> <span data-i18n="f_tel">Llamanos: +54 11 0000-0000</span></p>
+        <p><i class="bi bi-envelope" aria-hidden="true"></i> hola@senal-celulares.example</p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="h5" data-i18n="f_redes">Seguinos</h2>
+        <!-- Enlaces de ejemplo a las redes: reemplazarlos por los perfiles reales -->
+        <ul class="redes">
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+          <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h2 class="h5" data-i18n="f_info">Más información</h2>
+        <ul class="enlaces">
+          <li><a href="soporte.html" data-i18n="f_soporte">Soporte</a></li>
+          <li><a href="terminos.html" data-i18n="f_terminos">Términos y condiciones</a></li>
+          <li><a href="sostenibilidad.html" data-i18n="f_huella">Huella de carbono</a></li>
+          <li><a href="diseno.html" data-i18n="f_diseno">Diseño del proyecto</a></li>
+        </ul>
+      </div>
+      <p class="col-12 copy" data-i18n="f_fict">Tienda ficticia creada para un trabajo práctico. Precios y datos de ejemplo.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS: menú de celular, ventanas y acordeón -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="datos/celulares.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

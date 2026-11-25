@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diseño del proyecto (UX/UI) | Señal</title>
+  <meta name="description" content="User persona, wireframe y decisiones de diseño del sitio Señal.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <!-- Tipografía externa (Google Fonts): una sola familia con tres pesos, para cargar poco -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap (diseño y componentes) e íconos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- CSS propio: va último para poder sobrescribir a Bootstrap -->
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <a class="salto" href="#contenido" data-i18n="salto">Saltar al contenido</a>
+
+  <!-- HEADER semántico con el menú de navegación -->
+  <header class="encabezado">
+    <nav class="navbar navbar-expand-xl limite" aria-label="Menú principal">
+      <a class="navbar-brand marca" href="index.html">señal<span class="punto">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-xl-center gap-xl-1">
+          <li class="nav-item"><a class="nav-link" href="index.html#ofertas" data-i18n="nav_ofertas">Ofertas</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#baratos" data-i18n="nav_baratos">Buenos y baratos</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#premium" data-i18n="nav_premium">Premium</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#para-mirta" data-i18n="nav_mirta">Para Mirta</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#guia" data-i18n="nav_guia">Guía fácil</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#quienes-somos" data-i18n="nav_quienes">Quiénes somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#glosario" data-i18n="nav_glosario">Glosario</a></li>
+          <li class="nav-item"><button id="letra" class="btn btn-outline-dark rounded-pill" type="button" aria-pressed="false"><i class="bi bi-type" aria-hidden="true"></i> <span data-i18n="letra">Letra grande</span></button></li>
+          <li class="nav-item"><button id="idioma" class="btn btn-outline-dark rounded-pill" type="button" aria-label="Cambiar idioma / Change language">EN</button></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" class="limite pagina" tabindex="-1">
+    <h1>Diseño del proyecto (UX/UI)</h1>
+    <p class="intro">Antes de programar se define para quién se construye y dónde va cada cosa.</p>
+
+    <h2>1. Tema elegido</h2>
+    <p>Una tienda de celulares para personas que necesitan reemplazar su teléfono con urgencia. Muestra tres grupos: celulares en oferta, buenos y baratos, y premium.</p>
+
+    <h2>2. User Persona</h2>
+    <div class="persona">
+      <h3 class="mt-0">Mirta, 62 años</h3>
+      <p>Se le rompió el celular y necesita uno <strong>hoy</strong> para llamar a su familia, hacer trámites y usar WhatsApp. No es experta en tecnología.</p>
+      <ul>
+        <li><strong>Necesita:</strong> letra grande, pocas opciones bien explicadas, precios claros y poder retirar el equipo el mismo día.</li>
+        <li><strong>Le molesta:</strong> los sitios con demasiadas opciones, las palabras técnicas, los botones chicos y la presión para comprar.</li>
+        <li><strong>Quiere:</strong> encontrar un celular confiable en pocos minutos, sin gastar de más.</li>
+      </ul>
+    </div>
+
+    <h2>3. Cómo responde el sitio a la persona</h2>
+    <ul>
+      <li><strong>Letra grande y alto contraste</strong>, para leer sin esfuerzo.</li>
+      <li><strong>Tres grupos claros</strong> (ofertas, buenos y baratos, premium) en vez de una lista larga.</li>
+      <li><strong>Buscador visible</strong> arriba, para encontrar un modelo sin recorrer toda la página.</li>
+      <li><strong>Glosario</strong> que explica las palabras técnicas con ejemplos simples.</li>
+      <li><strong>Retiro en sucursal</strong> con stock a la vista, para resolver el mismo día.</li>
+      <li><strong>Sección "Para Mirta"</strong> al principio: dice para quién es la página, que lo que busca está en Ofertas y cómo la ayuda cada parte.</li>
+      <li><strong>Celular recomendado</strong> con un cartel azul. Lo elige una consulta SQL: nuevo <em>y</em> con descuento <em>y</em> batería grande <em>y</em> con stock hoy.</li>
+      <li><strong>Guía fácil de 5 pasos</strong> con números grandes y palabras simples, más un teléfono para pedir ayuda.</li>
+      <li><strong>Botón "Letra grande"</strong> que agranda todo el texto y se acuerda de la elección.</li>
+      <li><strong>Botones de 48 píxeles de alto</strong> como mínimo, fáciles de tocar con el dedo.</li>
+    </ul>
+
+    <h2>4. Wireframe (el "esqueleto" de la página)</h2>
+    <p>Solo cajas grises, sin colores ni fotos. El recuadro punteado marca el <strong>buscador</strong>: está debajo del título, en la parte de arriba, para que Mirta lo encuentre enseguida sin tener que bajar la pantalla.</p>
+    <div class="wireframes">
+      <figure><img src="img/wireframe-escritorio.svg" alt="Wireframe de escritorio con el buscador debajo del título" width="640" height="580"><figcaption>Escritorio</figcaption></figure>
+      <figure><img src="img/wireframe-celular.svg" alt="Wireframe de celular con el buscador debajo del título" width="240" height="600"><figcaption>Celular: todo en una columna</figcaption></figure>
+    </div>
+    <p>Navegación lógica: el menú lleva a las tres secciones del catálogo, a "Quiénes somos" y al glosario, y el pie reúne el contacto, las redes y los términos.</p>
+
+    <h2>5. Modelo entidad-relación (base de datos)</h2>
+    <p>La base de datos tiene cinco tablas relacionadas. Cada flecha une una clave primaria (PK) con una clave foránea (FK):</p>
+    <figure><img src="img/modelo-er.svg" alt="Diagrama con las tablas productos, stock, sucursales, clientes y pedidos y sus relaciones" width="780" height="490" style="max-width: 100%; height: auto;"></figure>
+    <ul>
+      <li><strong>productos 1 --- N stock N --- 1 sucursales:</strong> un celular puede estar en varias sucursales y una sucursal tiene varios celulares. Esa relación de muchos a muchos se resuelve con la tabla intermedia <code>stock</code>, que guarda las unidades.</li>
+      <li><strong>clientes 1 --- N pedidos:</strong> un cliente puede hacer varios pedidos.</li>
+      <li><strong>productos 1 --- N pedidos</strong> y <strong>sucursales 1 --- N pedidos:</strong> cada pedido es de un celular y, si se paga en efectivo, tiene una sucursal de retiro.</li>
+      <li>Por privacidad, la tabla <code>clientes</code> no guarda el DNI ni los datos de la tarjeta.</li>
+    </ul>
+
+    <h2>6. Lógica booleana en las consultas SQL</h2>
+    <p>La lógica booleana trabaja con dos valores, verdadero y falso. En SQL, cada condición del <code>WHERE</code> se evalúa para cada fila, y solo quedan las filas en las que el resultado es verdadero:</p>
+    <div class="table-responsive"><table class="table">
+      <thead><tr><th>Operador</th><th>Significa</th><th>Resultado verdadero cuando…</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><code>AND</code></th><td>"y"</td><td>se cumplen las dos condiciones</td></tr>
+        <tr><th scope="row"><code>OR</code></th><td>"o"</td><td>se cumple al menos una</td></tr>
+        <tr><th scope="row"><code>NOT</code></th><td>"no"</td><td>la condición es falsa (la invierte)</td></tr>
+      </tbody>
+    </table></div>
+    <p>Así se arma cada sección de la página (archivo <code>base-de-datos/consultas.sql</code>):</p>
+    <ul>
+      <li><strong>Celulares en oferta</strong> (<code>OR</code>): <code>precio &lt; precio_lista OR estado = 'usado'</code>. Entra si tiene descuento o si es usado.</li>
+      <li><strong>Buenos y baratos</strong> (<code>NOT</code> y <code>AND</code>): <code>NOT (precio &lt; precio_lista OR estado = 'usado') AND precio &lt;= 550000 AND ram_gb &gt;= 4 AND bateria_mah &gt;= 5000</code>. El <code>NOT</code> evita que un celular de oferta se repita acá; por las leyes de De Morgan equivale a "sin descuento <em>y</em> nuevo".</li>
+      <li><strong>Los más premium</strong> (<code>OR</code> con un <code>AND</code> adentro): <code>precio &gt;= 1000000 OR (camara_mp &gt;= 100 AND carga_w &gt;= 60)</code>. Los paréntesis deciden qué se evalúa primero.</li>
+      <li><strong>Para una compra urgente:</strong> <code>unidades &gt; 0 AND precio BETWEEN 200000 AND 560000 AND (estado = 'nuevo' OR garantia_meses &gt;= 3)</code>. Muestra solo lo que Mirta puede retirar hoy.</li>
+    </ul>
+    <p>Las tres primeras consultas son las que realmente deciden dónde aparece cada celular: un programa las ejecuta y exporta el resultado para la página. Además, la tabla <code>pedidos</code> usa una regla booleana para no aceptar datos imposibles: <code>CHECK (metodo_pago = 'tarjeta' OR id_sucursal IS NOT NULL)</code>, es decir, si se paga en efectivo tiene que haber una sucursal de retiro.</p>
+    <p><a href="index.html">Volver al inicio</a></p>
+  </main>
+
+  <!-- FOOTER semántico: contacto, enlaces a redes sociales y a los términos de uso -->
+  <footer id="contacto" class="pie">
+    <div class="limite row g-4">
+      <div class="col-md-4">
+        <h2 class="h5" data-i18n="f_contacto">Contacto</h2>
+        <p><i class="bi bi-telephone" aria-hidden="true"></i> <span data-i18n="f_tel">Llamanos: +54 11 0000-0000</span></p>
+        <p><i class="bi bi-envelope" aria-hidden="true"></i> hola@senal-celulares.example</p>
+      </div>
+      <div class="col-md-4">
+        <h2 class="h5" data-i18n="f_redes">Seguinos</h2>
+        <!-- Enlaces de ejemplo a las redes: reemplazarlos por los perfiles reales -->
+        <ul class="redes">
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+          <li><a href="https://www.whatsapp.com/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h2 class="h5" data-i18n="f_info">Más información</h2>
+        <ul class="enlaces">
+          <li><a href="soporte.html" data-i18n="f_soporte">Soporte</a></li>
+          <li><a href="terminos.html" data-i18n="f_terminos">Términos y condiciones</a></li>
+          <li><a href="sostenibilidad.html" data-i18n="f_huella">Huella de carbono</a></li>
+          <li><a href="diseno.html" data-i18n="f_diseno">Diseño del proyecto</a></li>
+        </ul>
+      </div>
+      <p class="col-12 copy" data-i18n="f_fict">Tienda ficticia creada para un trabajo práctico. Precios y datos de ejemplo.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS: menú de celular, ventanas y acordeón -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

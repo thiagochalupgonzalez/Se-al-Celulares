@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Huella de carbono | Señal</title>
+<meta content="Informe de huella de carbono del sitio Señal y simulador de emisiones por visita." name="description"/>
+<link href="img/favicon.svg" rel="icon" type="image/svg+xml"/>
+<!-- Tipografía externa (Google Fonts): una sola familia con tres pesos, para cargar poco -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<!-- Bootstrap (diseño y componentes) e íconos -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<!-- CSS propio: va último para poder sobrescribir a Bootstrap -->
+<link href="css/index.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="salto" data-i18n="salto" href="#contenido">Saltar al contenido</a>
+<!-- HEADER semántico con el menú de navegación -->
+<header class="encabezado">
+<nav aria-label="Menú principal" class="navbar navbar-expand-xl limite">
+<a class="navbar-brand marca" href="index.html">señal<span class="punto">.</span></a>
+<button aria-controls="menu" aria-expanded="false" aria-label="Abrir menú" class="navbar-toggler" data-bs-target="#menu" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto align-items-xl-center gap-xl-1">
+<li class="nav-item"><a class="nav-link" data-i18n="nav_ofertas" href="index.html#ofertas">Ofertas</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav_baratos" href="index.html#baratos">Buenos y baratos</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav_premium" href="index.html#premium">Premium</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav_mirta" href="index.html#para-mirta">Para Mirta</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav_guia" href="index.html#guia">Guía fácil</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav_quienes" href="index.html#quienes-somos">Quiénes somos</a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="nav_glosario" href="index.html#glosario">Glosario</a></li>
+<li class="nav-item"><button aria-pressed="false" class="btn btn-outline-dark rounded-pill" id="letra" type="button"><i aria-hidden="true" class="bi bi-type"></i> <span data-i18n="letra">Letra grande</span></button></li>
+<li class="nav-item"><button aria-label="Cambiar idioma / Change language" class="btn btn-outline-dark rounded-pill" id="idioma" type="button">EN</button></li>
+</ul>
+</div>
+</nav>
+</header>
+<main class="limite pagina" id="contenido" tabindex="-1">
+<h1 data-i18n="h_t">Huella de carbono del sitio</h1>
+<p class="intro" data-i18n="h_p">Cada página que se descarga consume energía en servidores, redes y dispositivos. Cuanto menos pesa, menos energía usa.</p>
+<h2 data-i18n="h1_t">1. Qué pesa nuestro sitio</h2>
+<p data-i18n="h1_d">Peso de los archivos propios de la página de inicio, medido en la carpeta del proyecto (sin comprimir):</p>
+<div class="table-responsive"><table class="table" style="max-width: 28rem;">
+<tbody>
+<tr><th scope="row">HTML</th><td>26.3 KB</td></tr>
+<tr><th scope="row">CSS</th><td>12.3 KB</td></tr>
+<tr><th scope="row">JavaScript</th><td>20.4 KB</td></tr>
+<tr><th data-i18n="h_datos" scope="row">Datos (celulares.js)</th><td>9.1 KB</td></tr>
+<tr><th data-i18n="h_img" scope="row">Imágenes SVG</th><td>92.2 KB</td></tr>
+<tr><th data-i18n="h_total" scope="row">Total propio</th><td><strong>160.3 KB (0.16 MB)</strong></td></tr>
+</tbody>
+</table></div>
+<p data-i18n-html="h1_ext">A esto se suman los recursos externos (Bootstrap, íconos y fuentes), que hay que medir con la pestaña <em>Red</em> (F12) una vez publicado el sitio.</p>
+<h2 data-i18n="h2_t">2. Decisiones que reducen el peso</h2>
+<ul>
+<li data-i18n="h2_a">Los celulares son dibujos SVG (texto liviano) en lugar de fotografías.</li>
+<li data-i18n="h2_b">No hay videos ni librerías de animaciones.</li>
+<li data-i18n="h2_c">Una sola familia de fuentes con tres pesos.</li>
+<li data-i18n-html="h2_d">Las imágenes del catálogo usan <code>loading="lazy"</code>: se descargan cuando se necesitan.</li>
+<li data-i18n="h2_e">Los datos viajan en un solo archivo y el JavaScript propio no usa librerías extra.</li>
+</ul>
+<h2 data-i18n="h3_t">3. Simulación</h2>
+<p data-i18n-html="h3_f">Fórmula: <strong>CO₂ (g) = peso (GB) × energía (kWh/GB) × intensidad (g CO₂/kWh)</strong>. Los valores de energía e intensidad son supuestos de referencia aproximados: reemplazalos por los de la fuente que cites.</p>
+<div class="simulador">
+<div class="row g-3">
+<div class="col-sm-6"><label class="form-label" data-i18n="h_l1" for="h-propio">Peso propio (MB)</label><input class="form-control" id="h-propio" min="0" step="0.01" type="number" value="0.16"/></div>
+<div class="col-sm-6"><label class="form-label" data-i18n="h_l2" for="h-externo">Recursos externos (MB, estimación)</label><input class="form-control" id="h-externo" min="0" step="0.01" type="number" value="0.40"/></div>
+<div class="col-sm-6"><label class="form-label" data-i18n="h_l3" for="h-visitas">Visitas por mes</label><input class="form-control" id="h-visitas" min="0" step="1" type="number" value="1000"/></div>
+<div class="col-sm-6"><label class="form-label" data-i18n="h_l4" for="h-kwh">Energía (kWh por GB)</label><input class="form-control" id="h-kwh" min="0" step="0.01" type="number" value="0.80"/></div>
+<div class="col-sm-6"><label class="form-label" data-i18n="h_l5" for="h-g">Intensidad (g CO₂ por kWh)</label><input class="form-control" id="h-g" min="0" step="1" type="number" value="440"/></div>
+<div class="col-sm-6"><label class="form-label" data-i18n="h_l6" for="h-fotos">Y si usáramos fotos reales: MB extra por visita (ej.: 8 fotos de 0,4 MB)</label><input class="form-control" id="h-fotos" min="0" step="0.1" type="number" value="3.2"/></div>
+</div>
+<p class="mt-3 mb-1"><span data-i18n="h_rv">Por visita:</span> <span class="resultado-huella" id="r-visita" role="status">-</span></p>
+<p class="mb-1"><span data-i18n="h_rm">Por mes:</span> <span class="resultado-huella" id="r-mes" role="status">-</span></p>
+<p class="mb-0"><span data-i18n="h_rf">Con fotos reales, por mes:</span> <span class="resultado-huella" id="r-fotos" role="status">-</span></p>
+</div>
+<p class="mt-3" data-i18n-html="h_med">Para una medición independiente cuando el sitio esté publicado, se puede usar <a href="https://www.websitecarbon.com/" rel="noopener" target="_blank">Website Carbon Calculator</a> y consultar la metodología en <a href="https://sustainablewebdesign.org/" rel="noopener" target="_blank">Sustainable Web Design</a>.</p>
+<p><a data-i18n="volver" href="index.html">Volver al inicio</a></p>
+</main>
+<!-- FOOTER semántico: contacto, enlaces a redes sociales y a los términos de uso -->
+<footer class="pie" id="contacto">
+<div class="limite row g-4">
+<div class="col-md-4">
+<h2 class="h5" data-i18n="f_contacto">Contacto</h2>
+<p><i aria-hidden="true" class="bi bi-telephone"></i> <span data-i18n="f_tel">Llamanos: +54 11 0000-0000</span></p>
+<p><i aria-hidden="true" class="bi bi-envelope"></i> hola@senal-celulares.example</p>
+</div>
+<div class="col-md-4">
+<h2 class="h5" data-i18n="f_redes">Seguinos</h2>
+<!-- Enlaces de ejemplo a las redes: reemplazarlos por los perfiles reales -->
+<ul class="redes">
+<li><a aria-label="Instagram" href="https://www.instagram.com/" rel="noopener" target="_blank"><i class="bi bi-instagram"></i></a></li>
+<li><a aria-label="Facebook" href="https://www.facebook.com/" rel="noopener" target="_blank"><i class="bi bi-facebook"></i></a></li>
+<li><a aria-label="WhatsApp" href="https://www.whatsapp.com/" rel="noopener" target="_blank"><i class="bi bi-whatsapp"></i></a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<h2 class="h5" data-i18n="f_info">Más información</h2>
+<ul class="enlaces">
+<li><a data-i18n="f_soporte" href="soporte.html">Soporte</a></li>
+<li><a data-i18n="f_terminos" href="terminos.html">Términos y condiciones</a></li>
+<li><a data-i18n="f_huella" href="sostenibilidad.html">Huella de carbono</a></li>
+<li><a data-i18n="f_diseno" href="diseno.html">Diseño del proyecto</a></li>
+</ul>
+</div>
+<p class="col-12 copy" data-i18n="f_fict">Tienda ficticia creada para un trabajo práctico. Precios y datos de ejemplo.</p>
+</div>
+</footer>
+<!-- Bootstrap JS: menú de celular, ventanas y acordeón -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/huella.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
